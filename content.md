@@ -1,4 +1,6 @@
-# Using Environment Variables
+# Encrypted Credentials 
+
+## [Using Environment Variables](https://learn.firstdraft.com/lessons/52-storing-credentials-securely)
 
 - Environment variables are a common way to store credentials.
 - Remember to add `.env` files to `.gitignore` to prevent accidental commits.
