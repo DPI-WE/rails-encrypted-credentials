@@ -4,27 +4,24 @@
 In the world of web development, securing sensitive information such as API keys, database passwords, and access tokens is paramount. Ruby on Rails provides a powerful mechanism for this: encrypted credentials. This lesson will guide you through understanding, managing, and utilizing encrypted credentials in your Rails applications.
 
 ## The Basics of Environment Variables
-Before diving into Rails-specific features, let's touch on a universal approach to handling sensitive data: environment variables. Check out this lesson on [Using Environment Variables](https://learn.firstdraft.com/lessons/52-storing-credentials-securely)
+Before diving into Rails-specific features, let's touch on a universal approach to handling sensitive data: environment variables. Environment variables are a common way to store credentials outside your application's source code to keep them secure and out of version control. Check out this lesson on [Using Environment Variables](https://learn.firstdraft.com/lessons/52-storing-credentials-securely) for more information.
 
-Environment variables are a common way to store credentials outside your application's source code to keep them secure and out of version control. **Pro Tip**: Always add your .env files or any file that contains environment variables to your .gitignore to prevent them from being accidentally committed to your version control system.
+**Pro Tip**: Always add your `.env` files or any file that contains environment variables to your `.gitignore` to prevent them from being accidentally committed to your version control system.
 
 ## Elevating Security with Rails credentials
-Rails goes a step further with its credentials feature, offering an enhanced level of security. With Rails credentials, all sensitive information can be stored in one place, encrypted, and safely included in your version control system. Changes to secrets and credentials can be deployed in tandem with your application's code changes, ensuring a seamless transition.
+Rails goes a step further with its credentials feature, offering an enhanced level of security. With Rails credentials, all sensitive information can be stored in one place, encrypted, and safely included in your version control system. Changes to secrets and credentials can be deployed in tandem with your application's code changes, ensuring a seamless transition. This eliminates the need for multiple `.env` files and supports atomic deploys, where key changes are seamlessly integrated with the code.
+
+<aside>
+ "atomic" refers to an operation or series of operations that are completed as a single unit. This means that the operation either fully succeeds or fully fails, with no intermediate states. If an error occurs during an atomic operation, the system should be left unchanged as if the operation had never been started. This concept is crucial for maintaining data integrity and consistency, especially in environments where multiple processes might be accessing or modifying data simultaneously.
+</aside>
 
 ## Understanding Encryption
-To appreciate the security Rails credentials offer, it's essential to grasp the basics of encryption:
-
-- Rails `credentials` commands enable secure storage of access tokens, database passwords, etc., within the codebase.
-- This eliminates the need for multiple `.env` files and supports atomic deploys, where key changes are seamlessly integrated with the code.
-
-## Understanding Encryption
-Think of encryption like a digital safe. Information is locked away with a key, and only the correct key can unlock it to retrieve the information.
+To appreciate the security Rails credentials offer, it's essential to grasp the basics of encryption. Think of encryption like a digital safe. Information is locked away with a key, and only the correct key can unlock it to retrieve the information.
 
 - **Symmetric encryption** uses the same key for encryption and decryption.
 - **Asymmetric encryption** uses a public key for encryption and a private key for decryption, enhancing security.
 
 ## Working with Application Credentials in Rails
-Rails manages application credentials through a combination of files and encryption techniques.
 
 - **Credentials File**: `credentials.yml.enc` is an encrypted file where all your application's secrets are safely stored. This file can and should be checked into version control.
 - **Master Key**: This symmetric encryption key is used to encrypt and decrypt the `config/credentials.yml.enc` file. It's stored in `config/master.key` and should never be committed to your version control. Instead, it should be shared securely with your team or set as an environment variable (`ENV["RAILS_MASTER_KEY"]`).
@@ -82,6 +79,4 @@ payment_api_key: my-super-secret-key
 - **Get Help:** `bin/rails credentials:help`.
 
 ## Resources
-For more in-depth information on managing security and credentials in Rails, refer to the [official Rails guides](https://edgeguides.rubyonrails.org/security.html#custom-credentials)
-
-By understanding and utilizing Rails' encrypted credentials, you can ensure that your application's sensitive information remains secure, both in transit and at rest.
+By understanding and utilizing Rails' encrypted credentials, you can ensure that your application's sensitive information remains secure, both in transit and at rest. For more in-depth information on managing security and credentials in Rails, refer to the [official Rails guides](https://edgeguides.rubyonrails.org/security.html#custom-credentials)
