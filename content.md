@@ -1,4 +1,4 @@
-# Encrypted Credentials
+# Encrypted Credentials 🤫
 
 ## Introduction to Secure Credentials Storage
 In the world of web development, securing sensitive information such as API keys, database passwords, and access tokens is paramount. Ruby on Rails provides a powerful mechanism for this: encrypted credentials. This lesson will guide you through understanding, managing, and utilizing encrypted credentials in your Rails applications.
