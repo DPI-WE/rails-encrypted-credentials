@@ -78,5 +78,52 @@ payment_api_key: my-super-secret-key
 - **Edit Credentials:** `EDITOR="code --wait" bin/rails credentials:edit`.
 - **Get Help:** `bin/rails credentials:help`.
 
+## Quiz
+
+- What is the primary purpose of using encrypted credentials in a Rails application?
+- To securely store sensitive information such as API keys and passwords.
+  - Correct! Encrypted credentials help protect sensitive information.
+- To enhance application performance.
+  - Not quite. While important for security, encrypted credentials do not directly affect performance.
+- To improve user authentication.
+  - Not quite. Encrypted credentials are primarily for securing sensitive information.
+{: .choose_best #encrypted_credentials_purpose title="Purpose of Encrypted Credentials" points="1" answer="1" }
+
+- Why should you add your `.env` files to your `.gitignore`?
+- To improve application performance.
+  - Not quite. The main reason is to secure sensitive information.
+- To enable faster deployments.
+  - Not quite. The main reason is to prevent accidental exposure of sensitive information.
+- To prevent sensitive information from being accidentally committed to version control.
+  - Correct! Adding `.env` files to `.gitignore` helps keep sensitive information secure.
+{: .choose_best #env_files_gitignore title="Adding .env Files to .gitignore" points="1" answer="3" }
+
+- What is the benefit of using Rails credentials over multiple `.env` files?
+- Rails credentials allow all sensitive information to be stored in one encrypted file and safely included in version control.
+  - Correct! Rails credentials provide a secure and centralized way to manage sensitive information.
+- Rails credentials improve database performance.
+  - Not quite. Rails credentials focus on security, not performance.
+- Rails credentials automatically generate API keys.
+  - Not quite. Rails credentials securely store, but do not generate, API keys.
+{: .choose_best #rails_credentials_benefit title="Benefit of Rails Credentials" points="1" answer="1" }
+
+- What is the difference between symmetric and asymmetric encryption?
+- Symmetric encryption is faster than asymmetric encryption.
+  - Not quite. While often true, the main difference lies in the key usage.
+- Symmetric encryption is more secure than asymmetric encryption.
+  - Not quite. Security depends on the context, but the main difference is in key usage.
+- Symmetric encryption uses the same key for encryption and decryption, while asymmetric encryption uses a public key for encryption and a private key for decryption.
+  - Correct! This is the fundamental difference between symmetric and asymmetric encryption.
+{: .choose_best #encryption_difference title="Difference Between Symmetric and Asymmetric Encryption" points="1" answer="3" }
+
+- How can you access a credential named `payment_api_key` in your Rails application code?
+- Using `Rails.application.credentials.payment_api_key`
+  - Correct! This is the proper way to access credentials in your code.
+- Using `ENV['payment_api_key']`
+  - Not quite. This would access an environment variable, not a Rails credential.
+- Using `Rails.config.payment_api_key`
+  - Not quite. The correct way is `Rails.application.credentials.payment_api_key`.
+{: .choose_best #access_credentials_code title="Accessing Credentials in Code" points="1" answer="1" }
+
 ## Resources
 By understanding and utilizing Rails' encrypted credentials, you can ensure that your application's sensitive information remains secure, both in transit and at rest. For more in-depth information on managing security and credentials in Rails, refer to the [official Rails guides](https://edgeguides.rubyonrails.org/security.html#custom-credentials)
